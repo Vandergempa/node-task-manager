@@ -1,9 +1,4 @@
-const express = require('express')
-require('./db/mongoose')
-const userRouter = require('./routers/user')
-const taskRouter = require('./routers/task')
-
-const app = express()
+const app = require('./app')
 const port = process.env.PORT
 
 // With middleware: new request => middleware does something => run route handler
@@ -14,10 +9,6 @@ const port = process.env.PORT
 //     next()
 //   }
 // })
-
-app.use(express.json())
-app.use(userRouter)
-app.use(taskRouter)
 
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`)
